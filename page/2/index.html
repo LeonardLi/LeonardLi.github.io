@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">18</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">20</span></a>
   </li>
         
         
@@ -262,7 +262,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">7</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">8</span></a>
   </li>
         
         
@@ -270,7 +270,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">21</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">23</span></a>
   </li>
         
         
@@ -313,6 +313,392 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2016/10/16/ST java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaode">
+      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
+      <meta itemprop="image" content="/uploads/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="积水成渊">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/16/ST java/" itemprop="url">
+                  Sublime Text Java Plugins
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-10-16 00:13:49" itemprop="dateCreated datePublished" datetime="2016-10-16T00:13:49-07:00">2016-10-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-01 14:46:09" itemprop="dateModified" datetime="2018-11-01T14:46:09-07:00">2018-11-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/效率/" itemprop="url" rel="index"><span itemprop="name">效率</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="使用sublime-text搭建java开发环境"><a href="#使用sublime-text搭建java开发环境" class="headerlink" title="使用sublime text搭建java开发环境"></a>使用sublime text搭建java开发环境</h1><p> 1.sublime text自带的java语法高亮和函数跳转足够我们审阅java代码，但是作为开发级别却远远不够。我们厌倦了eclipse漫长的等待和庞大的内存消耗，所以转向了轻量级的文本编辑器，而sublime text强大的插件系统为我们提供了自定义IDE的可能。系统配置好JDK之后，sublime自带的build system也预先准备了java的编译脚本，这对hello world级别的java代码来说是足够的，但是对于稍微复杂点的java工程，就显得捉襟见肘了.</p>
+<p> 2.那么如何使用sublime？<br> 这里推荐几个插件,都可以使用sublime自带的package control快速获得.</p>
+<ul>
+<li><a href="https://javatar.readthedocs.io/en/latest/features.html" target="_blank" rel="external">javatar</a></li>
+<li><a href="https://packagecontrol.io/packages/JavaIME" target="_blank" rel="external">JavaIME</a></li>
+</ul>
+<h2 id="JavaIME"><a href="#JavaIME" class="headerlink" title="JavaIME"></a>JavaIME</h2><p> 可以实现包的快速导入，和各种变量的快速初始化</p>
+<p> 目前支持：</p>
+<ul>
+<li>Class Instance</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type I-class name e.g. I-Scanner should show “java Scanner input = new Scanner(System.in);</div></pre></td></tr></table></figure>
+<ul>
+<li>Class declaration</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">pc -&gt; generates a public class declaration</div><div class="line">pcm -&gt; generates the public class declaration with a main method</div><div class="line">pcc -&gt; generates the public class declaration with a constructor</div><div class="line">pccm -&gt; generates the public class declaration with a main method and constructor</div><div class="line">pcfx -&gt; generates a public class declaration for JavaFX and a main mTestethod.</div></pre></td></tr></table></figure>
+<ul>
+<li>Import</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Note you can also press ENTER rather than TAB</div></pre></td></tr></table></figure>
+<ul>
+<li>Auto-Complete listener interfaces</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">To show a listener interface completion, type L- followed by the listener interface name. e.g.</div></pre></td></tr></table></figure>
+<ul>
+<li>Static properties</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type S- followed by method name. e.g. Type s-magenta then TAB to generates</div></pre></td></tr></table></figure>
+<h2 id="Javatar"><a href="#Javatar" class="headerlink" title="Javatar"></a>Javatar</h2><p>一个强大的多方面支持java开发的插件系统,目前官方的说法是支持以下:</p>
+<ul>
+<li>Packages and Subpackages creation</li>
+<li>Class (also Abstract), Interface and Enumeration snippets with</li>
+<li>package/class name auto-complete and auto-import<br>Project/Package/Class build and run with dependencies [2]</li>
+<li>Packages path in status bar</li>
+<li>External libraries packages</li>
+<li>Internal console with input supports</li>
+<li>Organize Imports</li>
+</ul>
+<p>亲测感觉还不错，但是还没看到第三方jar包管理的那部分，有空再研究一下。官网上跟着startup做一遍基本上就会用了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2016/01/07/《记一次移动App开发项目经历》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaode">
+      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
+      <meta itemprop="image" content="/uploads/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="积水成渊">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/01/07/《记一次移动App开发项目经历》/" itemprop="url">
+                  《记一次移动App开发项目经历》
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-01-07 16:45:01" itemprop="dateCreated datePublished" datetime="2016-01-07T16:45:01-08:00">2016-01-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-01 14:48:22" itemprop="dateModified" datetime="2018-11-01T14:48:22-07:00">2018-11-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/经验/" itemprop="url" rel="index"><span itemprop="name">经验</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="《记一次移动App开发项目经历》"><a href="#《记一次移动App开发项目经历》" class="headerlink" title="#《记一次移动App开发项目经历》"></a>#《记一次移动App开发项目经历》</h2><h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>来交大CS读研的第一学期，学业生活都很充实，这是 <code>高级软件工程</code>这门课的课程设计，这门的任课老师沈阿姨是一位十分慈（xiong）祥（can）的老师，欢迎往后的的学弟踊跃选沈阿姨的课程。<br>这次项目我们做的是一个二手交易网站和对应的移动端，开发时间大概是两个月，移动端要覆盖Android和iOS两个平台。抱着学习的心态，我们选择（wa）了Cordova/ionic这种跨（da）平（keng）台工具，采用angularJS来编写移动端，使用web开发的思路来开发移动端应用，希望能够体会下hybrid开发的感觉。</p>
+<hr>
+<h2 id="Tech-Background"><a href="#Tech-Background" class="headerlink" title="Tech Background"></a>Tech Background</h2><ul>
+<li>AngularJS</li>
+<li>Cordova/ionic</li>
+</ul>
+<hr>
+<h2 id="开发经历"><a href="#开发经历" class="headerlink" title="开发经历"></a>开发经历</h2><hr>
+<h2 id="问题和解决思路"><a href="#问题和解决思路" class="headerlink" title="问题和解决思路"></a>问题和解决思路</h2><hr>
+<h2 id="我的愚见"><a href="#我的愚见" class="headerlink" title="我的愚见"></a>我的愚见</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1873,361 +2259,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2015/09/07/设计模式（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaode">
-      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
-      <meta itemprop="image" content="/uploads/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="积水成渊">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/07/设计模式（一）/" itemprop="url">
-                  设计模式（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2015-09-07 19:00:48" itemprop="dateCreated datePublished" datetime="2015-09-07T19:00:48-07:00">2015-09-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2016-10-17 07:39:21" itemprop="dateModified" datetime="2016-10-17T07:39:21-07:00">2016-10-17</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>仅以本系列文章作为学习设计模式驱动力之一</p>
-</blockquote>
-<hr>
-<p><strong> 更新日志 </strong></p>
-<p>2015/9/7 创建本文档<br>2016/10/17 重新审视这篇，头涔涔泪潸潸。。。</p>
-<hr>
-<p><strong> TODO </strong></p>
-<ul>
-<li>阅读《设计模式》</li>
-<li>本月底完成至少10种设计模式的分析和学习</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2015/09/06/Cocos2d-x填坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaode">
-      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
-      <meta itemprop="image" content="/uploads/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="积水成渊">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/06/Cocos2d-x填坑/" itemprop="url">
-                  Cocos2d-x填坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2015-09-06 23:46:44" itemprop="dateCreated datePublished" datetime="2015-09-06T23:46:44-07:00">2015-09-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2016-10-18 16:36:36" itemprop="dateModified" datetime="2016-10-18T16:36:36-07:00">2016-10-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://7xlkqd.com1.z0.glb.clouddn.com/image/jpg687474703a2f2f7777772e636f636f7332642d782e6f72672f6174746163686d656e74732f3830312f636f636f733264785f706f7274726169742e706e67.png" alt="Cocos2d-x"></p>
-<blockquote>
-<p>去年接触的Cocos2d-x引擎，大半年的时间，见证了中国手游最火的年代，以及由盛转衰。先挖一个坑，日后慢慢填。</p>
-</blockquote>
-<p>第一次接触Cocos2d-x还是13年的夏天，那时候是大二暑期的工程实训，跟队友一起做了一款很普通的塔防游戏，犹记得那时候的版本还是1.5.x，如今的迭代速度快得惊人，而且开发工具日趋完善。14年的下半年在一家游戏公司实习，恰好公司也是使用Cocos2d-x作为开发工具，顺手捡了起来，并且有机会好好研究引擎。奈何前人的智慧其实我等凡夫俗子轻易窥得，总结了一些心得，不敢说自己有多了解，多多讨论以求进步罢了。</p>
-<h1 id="Cocos2d-x环境配置"><a href="#Cocos2d-x环境配置" class="headerlink" title="Cocos2d-x环境配置"></a>Cocos2d-x环境配置</h1><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><h1 id="Cocos2d-x基本概念"><a href="#Cocos2d-x基本概念" class="headerlink" title="Cocos2d-x基本概念"></a>Cocos2d-x基本概念</h1>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2279,7 +2310,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2306,7 +2337,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2355,7 +2388,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2421,7 +2458,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"> &copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
