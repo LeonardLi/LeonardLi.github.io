@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leonardli.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Recently I have been assigned to build some online services for my Lab such as official wiki, code repository, Piazza… I have physical server machine inmy hand with pretty good hardwares and I want to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Did I Build Docker Services for My Lab">
+<meta property="og:url" content="http://leonardli.github.io/2017/08/26/Lab/index.html">
+<meta property="og:site_name" content="积水成渊">
+<meta property="og:description" content="Recently I have been assigned to build some online services for my Lab such as official wiki, code repository, Piazza… I have physical server machine inmy hand with pretty good hardwares and I want to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-27T01:53:50.000Z">
+<meta property="article:modified_time" content="2017-09-13T11:54:01.000Z">
+<meta property="article:author" content="xiaode">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://leonardli.github.io/2017/08/26/Lab/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://leonardli.github.io/2017/08/26/Lab/","path":"2017/08/26/Lab/","title":"How Did I Build Docker Services for My Lab"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How Did I Build Docker Services for My Lab | 积水成渊</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">积水成渊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">xiaode的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">20</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">23</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#step-0"><span class="nav-number">1.</span> <span class="nav-text">step 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-1"><span class="nav-number">2.</span> <span class="nav-text">step 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-2"><span class="nav-number">3.</span> <span class="nav-text">step 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Backup-Recovery"><span class="nav-number">3.1.</span> <span class="nav-text">Backup &amp; Recovery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-Stop"><span class="nav-number">3.2.</span> <span class="nav-text">Start &amp; Stop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring-Logging"><span class="nav-number">3.3.</span> <span class="nav-text">Monitoring &amp; Logging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setp-3"><span class="nav-number">4.</span> <span class="nav-text">setp 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DokuWiki"><span class="nav-number">4.1.</span> <span class="nav-text">DokuWiki</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab"><span class="nav-number">4.2.</span> <span class="nav-text">GitLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forum"><span class="nav-number">4.3.</span> <span class="nav-text">Forum</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xiaode</p>
+  <div class="site-description" itemprop="description">天堂有路你不走，学海无涯苦作舟</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeonardLi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeonardLi" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/p/1005052197708580" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005052197708580" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/LiYangde" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;LiYangde" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2017/08/26/Lab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaode">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="积水成渊">
+      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How Did I Build Docker Services for My Lab | 积水成渊">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How Did I Build Docker Services for My Lab
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-26 18:53:50" itemprop="dateCreated datePublished" datetime="2017-08-26T18:53:50-07:00">2017-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2017-09-13 04:54:01" itemprop="dateModified" datetime="2017-09-13T04:54:01-07:00">2017-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Experience/" itemprop="url" rel="index"><span itemprop="name">Experience</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Recently I have been assigned to build some online services for my Lab such as official wiki, code repository, Piazza… I have physical server machine inmy hand with pretty good hardwares and I want to build and configure these services on the bare machine at first. But the configurations for each service really annoy me and I decide to establish the whole services in another way – <strong>Docker</strong>.</p>
+<p>My OS info is as listed below:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sdic@SDIC:~$ uname -a</span><br><span class="line">Linux SDIC 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">sdic@SDIC:~$ sudo lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu Artful Aardvark (development branch)</span><br><span class="line">Release:	17.10</span><br><span class="line">Codename:	artful</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>It is said:</p>
+<blockquote>
+<p>Docker - Build, Ship, and Run Any App, Anywhere</p>
+</blockquote>
+<p>So I make a list, and build these services step by step.</p>
+<h2 id="step-0"><a href="#step-0" class="headerlink" title="step 0"></a>step 0</h2><p>Of course the first step must be installing the docker in physical machine. I follow the <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/">official guides</a>. However, my networking state seems to be not as good as others(F**K GFW), and it comes up with some problems when I use the docker official repository. After adding the official GPG key, I get  <code>404</code> connect error after I run <code>apt update</code>, and I have no idea how to deal with it. So I turn to <a href="https://zouyapeng.gitbooks.io/docker/content/DockerInstallation/ubuntu_16_04.html">other solution</a> and get the docker installed on my machine.</p>
+<h2 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a>step 1</h2><p><strong>Requirement Analysis</strong>: The total requirements are as followed:</p>
+<blockquote>
+<ol>
+<li>A website for Lab basic info, like Wiki</li>
+<li>A code repository for team collaboration</li>
+<li>A forum for students who enroll the courses provided by our Lab  (Piazza).</li>
+<li>A tool for managing the services’ lifetime, resource, version, backups and so on.</li>
+</ol>
+</blockquote>
+<p>So I explore the <a href="https://hub.docker.com/">docker hub</a> to look for services matched my need. Through carefully comparing, I get another list:</p>
+<blockquote>
+<ul>
+<li>Website – <a href="https://hub.docker.com/r/istepanov/dokuwiki/">Dokuwiki</a> </li>
+<li>Code repository – <a href="https://hub.docker.com/r/sameersbn/gitlab/">GitLab</a></li>
+<li>Forum – <a href="https://hub.docker.com/r/skyzhou/docker-discuz/">Dizcuss</a></li>
+<li>Management tool –<a href="https://shipyard-project.com/">Shipyard</a></li>
+</ul>
+</blockquote>
+<h2 id="step-2"><a href="#step-2" class="headerlink" title="step 2"></a>step 2</h2><p>Decided which services to install, here comes another question: <strong>How to manage my docker cluster</strong>? This question indicates numbers of aspects in operation and maintenance.</p>
+<h3 id="Backup-Recovery"><a href="#Backup-Recovery" class="headerlink" title="Backup &amp; Recovery"></a>Backup &amp; Recovery</h3><p>As we know, the docker images run as instances on the machine, each image has its own version. When we want to update the image, how do we deal with the data in the instances? If we just force updating the image and restart the container, all data will be erased. At this point, we need to further understand the docker. Based on my konwledge, the running instance owns a special directory called <code>data volume</code>. It can bypass UFS and </p>
+<ul>
+<li>shared among the containers</li>
+<li>mofified immediately</li>
+<li>isolated from the image</li>
+<li>persisted even the container being deleted</li>
+</ul>
+<p>According to the function of data volume, we can easily create or mount the volume to the container</p>
+<h3 id="Start-Stop"><a href="#Start-Stop" class="headerlink" title="Start &amp; Stop"></a>Start &amp; Stop</h3><h3 id="Monitoring-Logging"><a href="#Monitoring-Logging" class="headerlink" title="Monitoring &amp; Logging"></a>Monitoring &amp; Logging</h3><h2 id="setp-3"><a href="#setp-3" class="headerlink" title="setp 3"></a>setp 3</h2><p>Install these services on the machine and configure them. That is least important part, cuz I just refer to the official guidence and follow some advices from the commentary. I still post them out for convenience.</p>
+<h3 id="DokuWiki"><a href="#DokuWiki" class="headerlink" title="DokuWiki"></a>DokuWiki</h3><h3 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h3><h3 id="Forum"><a href="#Forum" class="headerlink" title="Forum"></a>Forum</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/23/Ionic%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95/" rel="prev" title="Ionic的一些用法">
+                  <i class="fa fa-angle-left"></i> Ionic的一些用法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/08/30/%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%BA%8A%E4%B8%A4%E4%B8%89%E4%BA%8B/" rel="next" title="关于图床两三事">
+                  关于图床两三事 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">xiaode</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
