@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leonardli.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="IntroductionThis project is the final project for my CSS532 of UW CSS. Health is a significant topic as we always talk about, the foods we eat every day have very important effects on our body health.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IoT Project -- Smart Refridgerator Assistant">
+<meta property="og:url" content="http://leonardli.github.io/2019/03/12/An-IoT-Project-Smart-Refridgerator-Assistant/index.html">
+<meta property="og:site_name" content="积水成渊">
+<meta property="og:description" content="IntroductionThis project is the final project for my CSS532 of UW CSS. Health is a significant topic as we always talk about, the foods we eat every day have very important effects on our body health.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/pCAZfFx.png">
+<meta property="og:image" content="https://i.imgur.com/cUUuTav.jpeg">
+<meta property="og:image" content="https://i.imgur.com/Fg7Mmcp.jpeg">
+<meta property="og:image" content="https://i.imgur.com/fCjVmIL.jpeg">
+<meta property="article:published_time" content="2019-03-12T17:26:00.000Z">
+<meta property="article:modified_time" content="2025-02-15T22:43:41.631Z">
+<meta property="article:author" content="Leo">
+<meta property="article:tag" content="IoT, Android, Raspberry">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/pCAZfFx.png">
+
+
+<link rel="canonical" href="http://leonardli.github.io/2019/03/12/An-IoT-Project-Smart-Refridgerator-Assistant/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://leonardli.github.io/2019/03/12/An-IoT-Project-Smart-Refridgerator-Assistant/","path":"2019/03/12/An-IoT-Project-Smart-Refridgerator-Assistant/","title":"IoT Project -- Smart Refridgerator Assistant"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>IoT Project -- Smart Refridgerator Assistant | 积水成渊</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">积水成渊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Leo的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">20</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">23</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Technique-Background"><span class="nav-number">2.</span> <span class="nav-text">Technique Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Devices"><span class="nav-number">2.1.</span> <span class="nav-text">Devices</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Raspberry-Pi"><span class="nav-number">2.1.1.</span> <span class="nav-text">Raspberry Pi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Device-emulator"><span class="nav-number">2.1.2.</span> <span class="nav-text">Android Device (emulator)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS"><span class="nav-number">2.2.</span> <span class="nav-text">AWS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IOT-Hub"><span class="nav-number">2.2.1.</span> <span class="nav-text">IOT Hub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda"><span class="nav-number">2.2.2.</span> <span class="nav-text">Lambda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamodb"><span class="nav-number">2.2.3.</span> <span class="nav-text">Dynamodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cognito"><span class="nav-number">2.2.4.</span> <span class="nav-text">Cognito</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CloudWatch"><span class="nav-number">2.2.5.</span> <span class="nav-text">CloudWatch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">2.3.</span> <span class="nav-text">Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Recognition"><span class="nav-number">2.3.1.</span> <span class="nav-text">Image Recognition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">2.3.2.</span> <span class="nav-text">Deep Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caffe"><span class="nav-number">2.3.3.</span> <span class="nav-text">Caffe</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#System-Design"><span class="nav-number">3.</span> <span class="nav-text">System Design</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation"><span class="nav-number">4.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Leo</p>
+  <div class="site-description" itemprop="description">天堂有路你不走，学海无涯苦作舟</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LeonardLi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LeonardLi" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/p/1005052197708580" title="Weibo → http:&#x2F;&#x2F;weibo.com&#x2F;p&#x2F;1005052197708580" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/LiYangde" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;LiYangde" rel="noopener me" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://leonardli.github.io/2019/03/12/An-IoT-Project-Smart-Refridgerator-Assistant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Leo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="积水成渊">
+      <meta itemprop="description" content="天堂有路你不走，学海无涯苦作舟">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="IoT Project -- Smart Refridgerator Assistant | 积水成渊">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IoT Project -- Smart Refridgerator Assistant
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-12 10:26:00" itemprop="dateCreated datePublished" datetime="2019-03-12T10:26:00-07:00">2019-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-15 14:43:41" itemprop="dateModified" datetime="2025-02-15T14:43:41-08:00">2025-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This project is the final project for my <code>CSS532</code> of UW CSS. Health is a significant topic as we always talk about, the foods we eat every day have very important effects on our body health. The refridgerator is the place where most of families store the foods, however, life is so busy that we also forget what we have put into our food store and what time we put them in. Normally, we have wasted the freshness of the good food even have some food gone bad and pollute the whole store. So, to address this, I want to create a smart refridgerator assistant who can take care the problems.</p>
+<p>The idea is about recording the foods in your refridgerator and remind you of what we have and when we put them in. To implement a small prototype to make the requirements come true, I need to combine the techniques of IoT, Cloud computing and Machine Learning. With the help of this smart refridgerator assistant, we can avoid forgetting foods in our refridgerators and keep track on the freshness of them. The whole picture looks like that the assistant is going to monitor the refridgerator and send message to IoT hub, the cloud will store the food status and send notification to our mobile phone app and let us know the status of our refridgerator, so I can know what we have in our food store and decide the what to eat next.</p>
+<p><img src="https://i.imgur.com/pCAZfFx.png" alt="Project Presentation"></p>
+<h1 id="Technique-Background"><a href="#Technique-Background" class="headerlink" title="Technique Background"></a>Technique Background</h1><h2 id="Devices"><a href="#Devices" class="headerlink" title="Devices"></a>Devices</h2><p>This project uses two devices, one is Raspberry Pi served as monitor device, the other is an Android mobile phone served as an end device. Two devices are not connected directly, AWS services act as the communication media. The lambda function will control the message flow, and all the messages are over MQTT protocal.</p>
+<h3 id="Raspberry-Pi"><a href="#Raspberry-Pi" class="headerlink" title="Raspberry Pi"></a>Raspberry Pi</h3><p>The Raspberry Pi is a series of small single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote teaching of basic computer science in schools and in developing countries. The one I use in this project is <code>Raspberry Pi 3 Model B+</code>. The Raspberry Pi is also equiped with a video camera for image capturing. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Raspberry Pi 3 Model B+</span><br><span class="line"></span><br><span class="line">CPU:     Quad core 64-bit processor clocked at 1.4GHz</span><br><span class="line">Memory:  1GB LPDDR2 SRAM</span><br><span class="line">Network: Dual-band 2.4GHz and 5GHz wireless LAN</span><br><span class="line">         Bluetooth 4.2 / BLE</span><br><span class="line">         Higher speed ethernet up to 300Mbps</span><br><span class="line">Power:   Power-over-Ethernet capability (via a separate PoE HAT)</span><br><span class="line">++++++++++++++</span><br><span class="line"></span><br><span class="line">The Arducam 5 Megapixels 1080p Sensor</span><br><span class="line"></span><br><span class="line">- High-Definition video camera for Raspberry Pi Model A or B, B+, model 2, Raspberry Pi 3,3 B+</span><br><span class="line">- 5MPixel sensor with Omnivision OV5647 sensor in a fixed-focus lens</span><br><span class="line">- Integral IR filter</span><br><span class="line">- Still picture resolution: 2592 x 1944</span><br><span class="line">- Max video resolution: 1080p</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/cUUuTav.jpeg" alt="Raspberry Pi"><br><img src="https://i.imgur.com/Fg7Mmcp.jpeg" alt="Raspberry Pi"></p>
+<p>The Raspberry Pi device provides all runtime environment for the monitor part of this project, the device is installed with <code>Raspbian</code> and Python environment. The camera driver is provided by the default system.</p>
+<h3 id="Android-Device-emulator"><a href="#Android-Device-emulator" class="headerlink" title="Android Device (emulator)"></a>Android Device (emulator)</h3><p>As for Android Device, I use the android emulator provided by Google Android Studio for its pure Android OS. The client application will run in the emulator.</p>
+<p><img src="https://i.imgur.com/fCjVmIL.jpeg" alt="Android Device"></p>
+<h2 id="AWS"><a href="#AWS" class="headerlink" title="AWS"></a>AWS</h2><p>AWS provides dozens of services that support our needs. In this project, I mainly use the service of IoT Hub, Dynamodb, Lambda, Cognito and CloudWatch.</p>
+<h3 id="IOT-Hub"><a href="#IOT-Hub" class="headerlink" title="IOT Hub"></a>IOT Hub</h3><p>AWS IoT Hub is a managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices. In this project, IoT Hub is used to manage the communication between the Raspberry Pi and the cloud. It handles the messages sent from the Raspberry Pi and routes them to the appropriate AWS services.</p>
+<h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><p>AWS Lambda is a serverless compute service that lets you run code without provisioning or managing servers. In this project, Lambda functions are used to process the data received from the IoT Hub. These functions perform operations such as storing data in DynamoDB, sending notifications, and triggering other AWS services.</p>
+<h3 id="Dynamodb"><a href="#Dynamodb" class="headerlink" title="Dynamodb"></a>Dynamodb</h3><p>Amazon DynamoDB is a key-value and document database that delivers single-digit millisecond performance at any scale. In this project, DynamoDB is used to store the data related to the food items in the refrigerator. Each item is stored with details such as name, quantity, and the date it was added to the refrigerator.</p>
+<h3 id="Cognito"><a href="#Cognito" class="headerlink" title="Cognito"></a>Cognito</h3><p>Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. In this project, Cognito is used to manage user authentication and authorization. It ensures that only authorized users can access the data and perform operations on the smart refrigerator assistant.</p>
+<h3 id="CloudWatch"><a href="#CloudWatch" class="headerlink" title="CloudWatch"></a>CloudWatch</h3><p>Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), and IT managers. In this project, CloudWatch is used to monitor the performance and health of the AWS services used. It collects and tracks metrics, collects and monitors log files, and sets alarms.</p>
+<h2 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h2><p>In this project, the Raspberry Pi runs the recognition code to identify the food items in the refrigerator. This involves several machine learning techniques.</p>
+<h3 id="Image-Recognition"><a href="#Image-Recognition" class="headerlink" title="Image Recognition"></a>Image Recognition</h3><p>Image recognition is the process of identifying and detecting an object or a feature in a digital image or video. In this project, image recognition is used to identify the food items in the refrigerator. The Raspberry Pi captures images of the food items and uses image recognition algorithms to identify them.</p>
+<h3 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h3><p>Deep learning is a subset of machine learning that uses neural networks with many layers. In this project, deep learning techniques are used to improve the accuracy of the image recognition algorithms. The neural network is trained on a dataset of food images to recognize different types of food items.</p>
+<h3 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h3><p>Caffe is a deep learning framework made with expression, speed, and modularity in mind. It is developed by the Berkeley Vision and Learning Center (BVLC). In this project, Caffe is used to implement the deep learning algorithms for image recognition. The trained model is deployed on the Raspberry Pi to perform real-time recognition of food items.</p>
+<h1 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h1><h1 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/IoT-Android-Raspberry/" rel="tag"># IoT, Android, Raspberry</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/11/01/%E4%BA%BA%E7%94%9F%E6%96%B0%E7%AF%87/" rel="prev" title="人生新篇">
+                  <i class="fa fa-angle-left"></i> 人生新篇
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/08/26/Welcoming-Kittens/" rel="next" title="Welcoming Kittens">
+                  Welcoming Kittens <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leo</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
